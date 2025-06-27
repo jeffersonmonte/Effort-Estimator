@@ -180,6 +180,7 @@ elif page == "⚙️ Configuração de Projeto":
                         anchor_effort_pm=anchor_effort_pm,
                     )
                     repo.add_sector(new_sector)
+                    get_sectors.clear()
                     st.success(f"Setor '{sector_name}' criado com sucesso!")
                     st.rerun()
                 except Exception as e:
