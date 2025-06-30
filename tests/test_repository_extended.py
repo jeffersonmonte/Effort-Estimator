@@ -1,8 +1,6 @@
 from datetime import date
 from uuid import uuid4
 
-import pytest
-
 from estimation.models import EstimationMode, Factor, Sector, SprintMetric
 from estimation.repository import Repository
 from estimation.seed import seed_data
@@ -198,8 +196,6 @@ class TestRepositoryExtended:
 
         sector = Sector(name="Test Sector", estimation_mode=EstimationMode.BASELINE)
         saved_sector = repository.add_sector(sector)
-
-        from datetime import datetime
 
         from estimation.models import EstimationSnapshot
 

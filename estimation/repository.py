@@ -1,10 +1,9 @@
-from typing import Any, List, Optional
+from typing import List, Optional
 from uuid import UUID
 
 from sqlmodel import Session, SQLModel, create_engine, select
 
-from .models import (AnchorStory, EstimationSnapshot, Factor, Sector,
-                     SprintMetric)
+from .models import AnchorStory, EstimationSnapshot, Factor, Sector, SprintMetric
 
 
 class Repository:

@@ -1,15 +1,24 @@
-from datetime import date, datetime
+from datetime import date
 from uuid import uuid4
 
 import pytest
 
-from estimation.models import (AnchorStory, EstimationMode, EstimationSnapshot,
-                               Factor, Sector, SprintMetric)
+from estimation.models import (
+    EstimationMode,
+    EstimationSnapshot,
+    Factor,
+    Sector,
+    SprintMetric,
+)
 from estimation.repository import Repository
-from estimation.services import (ComplexityScorer, EstimationService,
-                                 FibonacciRound, MonteCarloService,
-                                 calculate_days_per_sp,
-                                 convert_to_story_points)
+from estimation.services import (
+    ComplexityScorer,
+    EstimationService,
+    FibonacciRound,
+    MonteCarloService,
+    calculate_days_per_sp,
+    convert_to_story_points,
+)
 
 
 @pytest.fixture
@@ -108,7 +117,7 @@ class TestRepository:
             target_score=7.0,
         )
 
-        saved_factor = repository.add_factor(factor)
+        repository.add_factor(factor)
         factors = repository.get_factors_by_sector(sample_sector.id)
 
         assert len(factors) == 1
@@ -123,7 +132,7 @@ class TestRepository:
             person_days=20.0,
         )
 
-        saved_metric = repository.add_sprint_metric(metric)
+        repository.add_sprint_metric(metric)
         metrics = repository.get_sprint_metrics_by_sector(sample_sector.id)
 
         assert len(metrics) == 1

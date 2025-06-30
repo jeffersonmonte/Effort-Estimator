@@ -1,8 +1,14 @@
 from datetime import date, datetime
 from uuid import uuid4
 
-from .models import (AnchorStory, EstimationMode, EstimationSnapshot, Factor,
-                     Sector, SprintMetric)
+from .models import (
+    AnchorStory,
+    EstimationMode,
+    EstimationSnapshot,
+    Factor,
+    Sector,
+    SprintMetric,
+)
 from .repository import Repository
 
 

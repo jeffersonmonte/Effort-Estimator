@@ -1,4 +1,6 @@
+# flake8: noqa
 import unittest
+
 
 class TestAppImports(unittest.TestCase):
 
@@ -8,12 +10,13 @@ class TestAppImports(unittest.TestCase):
         """
         try:
             from datetime import date
+            from uuid import uuid4
+
             import numpy as np
             import pandas as pd
             import plotly.express as px
             import plotly.graph_objects as go
             import streamlit as st
-            from uuid import uuid4
 
             # Imports from the 'estimation' module
             # Assuming 'estimation' is in PYTHONPATH or a local directory
@@ -32,7 +35,10 @@ class TestAppImports(unittest.TestCase):
             imported_successfully = False
             print(f"Failed to import libraries: {e}")
 
-        self.assertTrue(imported_successfully, "One or more libraries failed to import.")
+        self.assertTrue(
+            imported_successfully, "One or more libraries failed to import."
+        )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
