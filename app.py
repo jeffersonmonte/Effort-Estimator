@@ -5,16 +5,18 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
-from uuid import uuid4
 
-from estimation.models import (AnchorStory, EstimationMode, Factor, Sector,
-                               SprintMetric)
+from estimation.models import AnchorStory, EstimationMode, Factor, Sector, SprintMetric
 from estimation.repository import Repository
 from estimation.seed import seed_data
-from estimation.services import (ComplexityScorer, EstimationService,
-                                 FibonacciRound, MonteCarloService,
-                                 calculate_days_per_sp,
-                                 convert_to_story_points)
+from estimation.services import (
+    ComplexityScorer,
+    EstimationService,
+    FibonacciRound,
+    MonteCarloService,
+    calculate_days_per_sp,
+    convert_to_story_points,
+)
 
 # Configuração da página
 st.set_page_config(
@@ -222,7 +224,7 @@ elif page == "⚙️ Configuração de Projeto":
                                 st.write(f"**Score Alvo:** {factor.target_score}")
                             with col4:
                                 if st.button(
-                                    f"🗑️ Remover", key=f"del_factor_{factor.id}"
+                                    "🗑️ Remover", key=f"del_factor_{factor.id}"
                                 ):
                                     repo.delete_factor(factor.id)
                                     st.rerun()
@@ -395,7 +397,7 @@ elif page == "🌱 Fluxo Greenfield":
                     for story in anchor_stories:
                         with st.expander(f"📖 {story.title} ({story.story_points} SP)"):
                             st.write(f"**Descrição:** {story.description}")
-                            if st.button(f"🗑️ Remover", key=f"del_story_{story.id}"):
+                            if st.button("🗑️ Remover", key=f"del_story_{story.id}"):
                                 repo.delete_anchor_story(story.id)
                                 st.rerun()
 
